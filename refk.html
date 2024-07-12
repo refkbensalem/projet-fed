@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+    <link rel="stylesheet" href="deuxieme.css">
+
+</head>
+
+<body>
+
+    <header></header>
+
+    <section>
+
+    <div class="tout">
+
+        <div class="img">
+
+            <img src="s1.jpg" class="grand">
+
+
+            <img src="s1_2.jpg" id="img3" > 
+
+            <div class="petit">
+
+            <img src="s1_3.jpg" id="img1" class="fe"> 
+
+            <img src="s1_4.jpg" id="img2" class="fe">
+
+            </div> 
+
+        </div>
+
+        <script src="image.js"></script>
+
+        <div class="product" data-id="1" data-name="Product 1" data-price="85">
+
+            <h1>Montre Pour Femme</h1>
+
+            <p>65dt</p>
+
+            <hr>
+
+            
+
+            <div class="quantity">
+
+                <p>Quantité</p>
+
+                <button id="decreaseQty">-</button>
+
+                <input type="number" id="quantity" value="1" min="1">
+
+                <button id="increaseQty">+</button>
+
+            </div>
+
+            <script src="quantité.js"></script>
+
+            <p>Marque Longbo en acier inoxydable</p> 
+
+            <p> Made in Turquie </p>
+
+            <button onclick="addToCart(1)" id="addbtn" class="aj">AJOUTER AU PANIER</button>
+
+            <button class="aj">ACHETER MAINTENANT</button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+<section class="panier">
+
+
+    
+
+    <h1 id="titre">Shopping Cart</h1>
+
+        <div id="shopping-cart">
+
+            
+
+          <!-- Cart items will be displayed here -->
+
+        </div>
+
+    </div>
+
+</section>
+
+        <script>
+
+            // Initialize empty cart
+
+            let cart = [];
+
+            document.getElementById('panier').style.display = 'none';
+
+            document.getElementById('titre').style.display = 'none';
+
+            
+
+        
+
+            function addToCart(productId) {
+
+      const product = document.querySelector(`.product[data-id="${productId}"]`);
+
+      const productName = product.dataset.name;
+
+      const productPrice = parseFloat(product.dataset.price);
+
+
+      const cartItem = {
+
+        id: productId,
+
+        name: productName,
+
+        price: productPrice
+
+      };
+
+
+      cart.push(cartItem);
+
+      renderCart();
+
+    }
+
+
+    // Function to render cart
+
+    function renderCart() {
+
+      const cartContainer = document.getElementById('shopping-cart');
+
+      cartContainer.innerHTML = '';
+
+
+      let totalPrice = 0;
+
+
+      cart.forEach(item => {
+
+        const itemElement = document.createElement('div');
+
+        itemElement.textContent = `${item.name} : ${item.price}dt`;
+
+       
+
+        cartContainer.appendChild(itemElement);
+
+        totalPrice += item.price;
+
+        
+
+      });
+
+
+      // Display total price
+
+      const totalElement = document.createElement('div');
+
+      totalElement.textContent = `Total: ${totalPrice}dt`;
+
+      cartContainer.appendChild(totalElement);
+
+    }
+
+    document.getElementById('addbtn').addEventListener('click', function() {
+
+    document.getElementById('panier').style.display = 'block';
+
+    document.getElementById('titre').style.display = 'block';
+
+    });
+
+  </script>
+
+
+    <footer></footer>
+
+    
+
+</body>
+
+<style>
+
+
+section{
+
+    margin-left: 20%;
+
+    margin-top: 20px;
+
+}
+
+.tout{
+
+    display: flex;
+
+}
+
+.img{
+
+    position: relative;
+
+    display: block;
+
+    float: right;
+
+}
+
+.petit{
+
+    display: flex;
+
+   margin-top: 10px;
+
+}
+
+.fe{
+
+    width: 100px;
+
+    height: 100px;
+
+    margin-right: 20px;
+
+    border-radius: 20px;
+
+}
+
+.grand{
+
+    width:500px;
+
+    height: 500px;
+
+    margin-right: 20px;
+
+    border-radius: 20px;
+
+}
+
+
+
+
+#increaseQty {
+
+   
+
+    width: 40px;
+
+    height: 40px;
+
+   
+
+
+}
+
+#decreaseQty{
+
+    width: 40px;
+
+    height: 40px;
+
+   
+
+
+}
+
+input{
+
+    width: 35px;
+
+    height: 35px;
+
+}
+
+.quantity{
+
+    margin-top: 50px;
+
+    margin-bottom: 40px;
+
+}
+
+
+
+
+.aj{
+
+    background-color: rgba(192, 190, 190, 0.274);
+
+    color: rgb(39, 38, 38);
+
+    align-items: center;
+
+    margin-left: 30px;
+
+    margin-top: 40px;
+
+    width: 300px;
+
+    height: 100px;
+
+    border-radius: 10px;
+
+    font-size:20px;
+
+   
+
+}
+
+button:hover{
+
+    background-color: rgb(88, 87, 87);
+
+    color: white;
+
+}
+
+#img3 {
+
+    display: none; 
+
+    top: 0;
+
+    left: 0;
+
+    transition: opacity 0.3s ease;
+
+}
+
+#img3{
+
+    width:500px;
+
+    height: 500px;
+
+    margin-right: 20px;
+
+    border-radius: 20px;
+
+}
+
+
+</style>
+</html>

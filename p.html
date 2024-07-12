@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
+    <title>Details</title>
+</head>
+
+<body>
+    <div>
+        <h1 id="k">sac à main</h1> 
+     </div>
+     
+   <div class="panier">
+     <div class="cart" id="wiem"><i class="fa-solid fa-cart-shopping"></i><p id="count">0</p></div>
+
+     
+     <div class="container" id="wiwi">
+         <div id="root"></div>
+         <div class="sidebar">
+             <div class="head"><p>My Cart</p></div>
+             <div id="cartItem">Your cart is empty</div>
+             <div class="foot">
+                 <h3>Total</h3>
+                 <h2 id="total"> 0.00 DT</h2>
+             </div>
+         </div>
+     </div>
+    </div>
+    <section>
+        <div class="tout">
+            <div class="img">
+                <img src="s1.jpg" class="grand">
+                
+                <div class="petit">
+                    <img src="s1_3.jpg" id="img1" class="fe">
+                    <img src="s1_4.jpg" id="img2" class="fe">
+                </div>
+            </div>
+            <div class="product" data-id="1" data-name="Product 1" data-price="85">
+                <h1 class="title">Sac À Bandoulière</h1>
+            </br>
+                <p class="price">69.000 TND</p>
+                <hr>
+                <div class="quantity">
+                    <p>Quantité</p>
+                </br>
+                    <button id="decreaseQty">-</button>
+                    <input type="number" id="quantity" value="1" min="1">
+                    <button id="increaseQty">+</button>
+                </div>
+                <button onclick="addtocart()" id="aj">ajouter</button>
+            </div>
+            
+        
+            
+        </div>
+       
+    </section>
+   
+    <script>
+        
+        // Vous pouvez maintenant utiliser la variable `imgSrc` pour stocker l'URL de l'image.
+    
+        var cart = [];
+        let i = 0;
+        
+        function addtocart() {
+            const imgElement = document.querySelector('.img');
+        const imgSrc = imgElement.querySelector('img.grand').getAttribute('src');
+    
+            cart.push({
+                image: imgSrc,
+                title: "Sac À Bandoulière",
+                price: 69.000
+            });
+            displaycart();
+            const cartContainer = document.getElementById("wiwi");
+    cartContainer.style.display = "flex";
+    const cart1 = document.getElementById("wiem");
+    cart1.style.display = "flex";
+        }
+        
+
+        function delElement(a) {
+            cart.splice(a, 1);
+            displaycart();
+        }
+    
+        function displaycart() {
+            let j = 0, total = 0;
+            document.getElementById("count").innerHTML = cart.length;
+            if (cart.length == 0) {
+                document.getElementById('cartItem').innerHTML = "Your cart is empty";
+                document.getElementById("total").innerHTML = "0.00 DT";
+            } else {
+                document.getElementById("cartItem").innerHTML = cart.map((items) => {
+                    var { image, title, price } = items;
+                    total = total + price;
+                    document.getElementById("total").innerHTML = total.toFixed(2) + " DT";
+                    return (
+                        `<div class='cart-item'>
+                        <div class='row-img'>
+                            <img class='rowimg' src="${image}">
+                        </div>
+                        <p style='font-size:12px;'>${title}</p>
+                        <h2 style='font-size: 15px;'>${price.toFixed(2)} DT</h2>` +
+                        `<i class='fa-solid fa-trash' onclick='delElement(${j++})'></i></div>`
+                    );
+                }).join('');
+            }
+        }
+    </script>
+
+    <style>
+        
+
+        body {
+            margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+section {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 90%; /* Ajustez la largeur selon vos besoins */
+    
+
+    
+}
+hr{
+    width: 80%;
+}
+
+
+
+.container{
+    margin-top: 35px;
+    display: none;
+    
+    width: 70%;
+    
+    margin-left: 400px;
+    position: absolute; /* Ajout */
+    right: 20px; /* Ajout */
+    top: 60px; /* Ajout */
+}
+#root{
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+.sidebar {
+    width: 40%;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-left: 20px;
+    padding: 15px;
+    text-align: center;
+}
+
+
+.cart{
+    display: none;
+    
+    background-color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 10px;
+    border-radius: 3px;
+    width: 80px;
+    margin-left: 1350px;
+}
+
+.panier{
+    margin-top: 0px;
+    width: auto;
+}
+
+.tout{
+
+display: flex;
+
+}
+
+.img{
+
+position: relative;
+
+display: block;
+
+float: right;
+
+}
+
+.petit{
+
+display: flex;
+
+margin-top: 10px;
+
+}
+
+.fe{
+
+width: 100px;
+
+height: 100px;
+
+margin-right: 20px;
+
+border-radius: 20px;
+
+}
+
+.grand{
+
+width:500px;
+
+height: 500px;
+
+margin-right: 20px;
+
+border-radius: 20px;
+
+}
+
+
+
+
+#increaseQty {
+
+
+
+width: 40px;
+
+height: 40px;
+
+}
+
+#decreaseQty{
+
+width: 40px;
+
+height: 40px;
+
+}
+
+input{
+
+width: 35px;
+
+height: 35px;
+
+}
+
+.quantity{
+
+margin-top: 50px;
+
+margin-bottom: 40px;
+
+}
+
+
+
+
+#aj{
+
+
+background-color:#f7eecd;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 50%;
+    border-radius: 10px;
+
+
+
+}
+
+      
+
+.cart p{
+    height: 22px;
+    width: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 22px;
+    background-color:#f7eecd;
+    color: white;
+}
+
+.head{
+    background-color:#f7eecd;
+    border-radius: 3px;
+    height: 40px;
+    padding: 10px;
+    
+    color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+    font-size: 18px;
+}
+
+
+
+.fa-solid{
+    color:#f7eecd;
+}
+
+#root{
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+
+.images{
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: cover;
+    object-position: center;
+}
+
+h2{
+    font-size: 20px;
+    color: #86d889;
+}
+
+
+.cart-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: white;
+    border-bottom: 1px solid #f9f9f9;
+    border-radius: 3px;
+    margin: 10px 10px;
+}
+.row-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: 1px solid rgb(246, 232, 204);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.rowimg{
+    max-width: 43px;
+    max-height: 43px;
+    border-radius: 50%;
+}
+.fa-trash:hover{
+    cursor: pointer;
+    color: #333;
+}
+.product {
+    background-color: #f9f9f9;
+    border: 1px solid #eeeaea;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 400px;
+    height: 500px;
+}
+
+.title {
+    margin-top: 0;
+}
+
+.price {
+    font-weight: bold;
+    color: #86d889;
+}
+
+.quantity {
+    margin-top: 15px;
+}
+
+.quantity p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.quantity button {
+    background-color: #f7eecd;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.quantity input {
+    width: 50px;
+    text-align: center;
+}
+
+
+
+button#aj:hover {
+    background-color: #f3e7a7;
+}
+
+button#decreaseQty,
+button#increaseQty {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+    </style>
+</body>
+
+</html>

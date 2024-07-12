@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sacs à main</title>
+</head>
+<body>
+    <header>
+        <h1 style="text-align: center;">Sacs à main</h1>
+        <p style="text-align: center;">9 produits</p>
+    </header>
+    <br>
+    <main>
+        <div class="gallery">
+        <div class="wiwi">    <a href="details.html"><div class="item">
+                <div class="slider-container">
+                    <div class="slider">
+                        <img src="s1.jpg" alt="sac 1">
+                        <img src="s1_2.jpg" alt="sac 1">
+                        <img src="s1_3.jpg" alt="sac 1">
+                        <img src="s1_4.jpg" alt="sac 1">
+                    </div>
+                </div>
+                <div class="description">
+                    <p class="name">Sac À Bandoulière</p>
+                    <p class="price">Prix : 69.000 TND</p>
+                </div>
+            </div></a></div>
+            
+            <div class="item">
+                <div class="slider-container">
+                    <div class="slider">
+                        <img src="s2.jpg" alt="sac 1">
+                        <img src="s2_1.jpg" alt="sac 1">
+                        <img src="s2_2.jpg" alt="sac 1">
+                        <img src="s2_3.jpg" alt="sac 1">
+                    </div>
+                </div>
+                <div class="description">
+                    <p class="name">Sac À Bandoulière</p>
+                    <p class="price">Prix : 69.000 TND</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="slider-container">
+                    <div class="slider">
+                        <img src="s3.jpg" alt="sac 1">
+                        <img src="s3_2.jpg" alt="sac 1">
+                        <img src="s3_3.jpg" alt="sac 1">
+                        <img src="s3_4.jpg" alt="sac 1">
+                    </div>
+                </div>
+                <div class="description">
+                    <p class="name">Sac À Bandoulière</p>
+                    <p class="price">Prix : 69.000 TND</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="s4.jpg" alt="sac 4">
+                <p class="name">Sac À Bandoulière</p>
+                <p class="price">Prix : 72.000 TND</p>
+            </div>
+        </div>
+        <div class="gallery">
+            <div class="item">
+                <img src="s5.jpg" alt="sac 5">
+                <div>
+                    <p class="name">Sac À Bandoulière</p>
+                    <p class="price">Prix : 64.000 TND</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="s6.jpg" alt="sac 6">
+                <p class="name">Sac À Bandoulière</p>
+                <p class="price">Prix : 72.000 TND</p>
+            </div>
+            <div class="item">
+                <img src="s7.jpg" alt="sac 7">
+                <p class="name">Sac À Bandoulière</p>
+                <p class="price">Prix : 80.000 TND</p>
+            </div>
+            <div class="item">
+                <img src="s8.jpg" alt="sac 8">
+                <p class="name">Sac À Double Bandoulière</p>
+                <p class="price">Prix : 79.000 TND</p>
+            </div>
+        </div>
+        <div class="gallery">
+            <div class="item">
+                <img src="s9.jpg" alt="sac 9">
+                <div>
+                    <p class="name">Sac À Bandoulière</p>
+                    <p class="price">Prix : 72.000 TND</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(235, 235, 235);
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 50px;
+            justify-items: center; /* Alignement horizontal au centre */
+            align-items: start; /* Alignement vertical en haut */
+        }
+
+        .item {
+            text-align: center;
+            background-color: white;
+            width: 100%; /* Pour assurer que tous les éléments occupent la même largeur */
+        }
+        .wiwi{
+            text-align: center;
+            background-color: white;
+            width: 100%;
+        }
+
+        .item img {
+            max-width: 100%;
+        }
+
+        .name {
+            font-weight: bold;
+        }
+
+        .price {
+            color: green;
+        }
+
+        .description {
+    text-align: center;
+}
+a{
+    text-decoration:none;
+    color: black;
+    width: 100%;
+    
+}
+.slider-container {
+    width: 100%; /* Assurez-vous que le conteneur du carrousel occupe toute la largeur */
+    max-width: 600px; /* Ou toute autre largeur souhaitée */
+    margin: 0 auto; /* Pour centrer le conteneur horizontalement */
+    overflow: hidden;
+    border: 1px solid #f1f1f1;
+}
+
+
+        .slider-container .slider {
+            animation: slider-1 12s infinite ease-in-out;
+            display: flex;
+            justify-items: center; /* Alignement horizontal au centre */
+            align-items: start;
+        }
+
+        @keyframes slider-1 {
+            0%, 20% {
+                transform: translateX(0);
+            }
+            25%, 45% {
+                transform: translateX(-100%);
+            }
+            50%, 70% {
+                transform: translateX(-200%);
+            }
+            75%, 95% {
+                transform: translateX(-300%);
+            }
+            100% {
+                transform: translateX(-400%);
+            }
+        }
+    </style>
+</body>
+</html>

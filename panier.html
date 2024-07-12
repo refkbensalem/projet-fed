@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier</title>
+</head>
+
+<body>
+    <div class="product" data-id="1" data-name="Product 1" data-price="85">
+        <h1 class="title">Sac À Bandoulière</h1>
+        <p class="price">69.000 TND</p>
+        <hr>
+        <div class="quantity">
+            <p>Quantité</p>
+            <button id="decreaseQty">-</button>
+            <input type="number" id="quantity" value="1" min="1">
+            <button id="increaseQty">+</button>
+        </div>
+        
+        <button onclick="addtocart()" id="aj">Add to cart</button>
+    </div>
+</body>
+<style>
+    .product {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 300px;
+}
+
+.title {
+    margin-top: 0;
+}
+
+.price {
+    font-weight: bold;
+    color: #4caf50;
+}
+
+.quantity {
+    margin-top: 15px;
+}
+
+.quantity p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.quantity button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.quantity input {
+    width: 50px;
+    text-align: center;
+}
+
+button#aj {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+
+button#aj:hover {
+    background-color: #45a049;
+}
+
+button#decreaseQty,
+button#increaseQty {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+</style>
+</html>
